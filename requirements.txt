@@ -1,0 +1,11 @@
+pydantic>=2.12.5
+langgraph>=1.0.10
+langchain-core>=1.2.19
+langchain-community>=0.4.1
+langchain-openai>=1.1.11
+langchain>=1.2.12
+anyio>=4.12.1
+httpx>=0.28.1
+PyYAML>=6.0.3
+dotenv~=0.9.9
+python-dotenv~=1.2.2
