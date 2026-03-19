@@ -9,3 +9,6 @@ httpx>=0.28.1
 PyYAML>=6.0.3
 dotenv~=0.9.9
 python-dotenv~=1.2.2
+
+# unstructured是一个 Python开源库,设计用于处理和预处理非结构化数据(如 PDF、Word 文档、HTML、图片等),将其转换为结构化格式,方便下游机器学习(ML)或大语言模型(LLM)任务。
+unstructured>=0.19.5

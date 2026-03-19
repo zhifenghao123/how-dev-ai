@@ -1,0 +1,72 @@
+[
+  {
+    "company": "OpenAI",
+    "models": [
+      {"name": "GPT-3", "release_date": "2020-06-11"},
+      {"name": "GPT-3.5", "release_date": "2022-03-15"},
+      {"name": "GPT-4", "release_date": "2023-03-14"},
+      {"name": "GPT-4 Turbo", "release_date": "2023-11-06"},
+      {"name": "GPT-4o", "release_date": "2024-05-13"}
+    ]
+  },
+  {
+    "company": "Google",
+    "models": [
+      {"name": "PaLM", "release_date": "2022-04-05"},
+      {"name": "PaLM 2", "release_date": "2023-05-10"},
+      {"name": "Gemini Pro", "release_date": "2023-12-06"},
+      {"name": "Gemini Ultra", "release_date": "2024-02-08"},
+      {"name": "Gemini 1.5 Pro", "release_date": "2024-02-15"}
+    ]
+  },
+  {
+    "company": "Anthropic",
+    "models": [
+      {"name": "Claude 1", "release_date": "2023-03-14"},
+      {"name": "Claude 2", "release_date": "2023-07-11"},
+      {"name": "Claude 3 Opus", "release_date": "2024-03-04"},
+      {"name": "Claude 3 Sonnet", "release_date": "2024-03-04"},
+      {"name": "Claude 3 Haiku", "release_date": "2024-03-04"}
+    ]
+  },
+  {
+    "company": "Meta",
+    "models": [
+      {"name": "LLaMA", "release_date": "2023-02-24"},
+      {"name": "LLaMA 2", "release_date": "2023-07-18"},
+      {"name": "Code LLaMA", "release_date": "2023-08-24"},
+      {"name": "LLaMA 3", "release_date": "2024-04-18"},
+      {"name": "LLaMA 3.1", "release_date": "2024-07-23"}
+    ]
+  },
+  {
+    "company": "Microsoft",
+    "models": [
+      {"name": "Orca", "release_date": "2023-06-01"},
+      {"name": "Phi-1", "release_date": "2023-06-12"},
+      {"name": "Phi-2", "release_date": "2023-12-12"},
+      {"name": "Phi-3-mini", "release_date": "2024-04-23"},
+      {"name": "Phi-3-medium", "release_date": "2024-04-23"}
+    ]
+  },
+  {
+    "company": "DeepSeek",
+    "models": [
+      {"name": "DeepSeek-Coder", "release_date": "2023-06-15"},
+      {"name": "DeepSeek-V2", "release_date": "2024-05-06"},
+      {"name": "DeepSeek-R1", "release_date": "2024-07-01"},
+      {"name": "DeepSeek-V3", "release_date": "2024-09-10"},
+      {"name": "DeepSeek-R1-Zero", "release_date": "2024-11-05"}
+    ]
+  },
+  {
+    "company": "阿里",
+    "models": [
+      {"name": "通义千问-7B", "release_date": "2023-04-07"},
+      {"name": "通义千问-14B", "release_date": "2023-08-03"},
+      {"name": "通义千问-72B", "release_date": "2023-11-01"},
+      {"name": "Qwen2-7B", "release_date": "2024-05-09"},
+      {"name": "Qwen2-72B", "release_date": "2024-06-18"}
+    ]
+  }
+]
