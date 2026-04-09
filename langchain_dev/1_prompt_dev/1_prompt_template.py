@@ -45,7 +45,89 @@ from langchain_core.prompts import PromptTemplate
 字符串模板，用于LLM的提示词
 """
 
-def prompt_template_dev1():
+"""
+1、PromptTemplate如何获取实例
+（1）使用构造方法的方式
+（2）使用from_template()方法【推荐】
+"""
+def prompt_template_instance_dev1():
+    template = PromptTemplate(
+        template="你是一个{role},请帮我{task}",
+        input_variables=["role", "task"]
+    )
+    print(template)
+    print(template.format(role="翻译助手", task="翻译这段文字"))
+
+def prompt_template_instance_dev2():
+    template = PromptTemplate.from_template(
+        "你是一个{role},请帮我{task}"
+    )
+    print(template)
+    print(template.format(role="翻译助手", task="翻译这段文字"))
+
+
+"""
+2、PromptTemplate两种特殊结构的使用
+（1）部分提示词模版的使用（重点）
+（2）组合提示词模版的使用（了解）
+"""
+def prompt_template_partial_dev1():
+    # 方式一：在PromptTemplate的构造方法或from_template()方法中，使用partial_variables设置
+    template = PromptTemplate.from_template(
+        template="你是一个{role},请帮我{task}",
+        partial_variables={"role": "翻译助手"}
+    )
+    print(template)
+    print(template.format(task="翻译这段文字"))
+    print(template.format(task="把这段文字翻译成法语"))
+    return
+
+def prompt_template_partial_dev2():
+    # 方式一：在PromptTemplate的构造方法或from_template()方法中，使用partial_variables设置
+    template = PromptTemplate(
+        template="你是一个{role},请帮我{task}",
+        input_variables=["task"],
+        partial_variables={"role": "翻译助手"}
+    )
+    print(template)
+    print(template.format(task="翻译这段文字"))
+    print(template.format(task="把这段文字翻译成法语"))
+
+def prompt_template_partial_dev3():
+    # 方式二：调用partial()方法
+    template = PromptTemplate(
+        template="你是一个{role},请帮我{task}",
+        input_variables=["task"],
+    )
+
+    # 调用partial()方法，设置部分变量
+
+    # 这种方式是错误的，因为partial()方法返回的是一个新的PromptTemplate对象，而不是修改原对象
+    #template.partial(role="翻译助手")
+
+    template = template.partial(role="翻译助手")
+    print(template)
+    print(template.format(task="翻译这段文字"))
+    print(template.format(task="把这段文字翻译成法语"))
+
+def prompt_template_combine_dev1():
+    # 组合提示词模版的使用
+    template =(
+        PromptTemplate.from_template(template="你是一个{role},你很善于{skill}")
+        + ", 也很富有实际经验"
+        + "\n\n请帮我{task}"
+    )
+    print(template)
+    print(template.format(role="翻译助手", skill="翻译", task="翻译这段文字"))
+
+
+"""
+3、给变量赋值的两种方式（调用提示词模板的方式）
+（1）format()：参数为各个变量，返回的是字符串
+（2）invoke()：参数为包含各个变量键值对的字典，返回的是StringPromptValue对象，更建议使用这种
+"""
+
+def prompt_template_format_dev1():
     template = PromptTemplate.from_template(
         "你是一个{role},请帮我{task}"
     )
@@ -54,8 +136,29 @@ def prompt_template_dev1():
     print(template.format(role="代码助手", task="帮我写个Python函数"))
     return
 
+def prompt_template_invoke_dev1():
+    template = PromptTemplate.from_template(
+        "你是一个{role},请帮我{task}"
+    )
+    # invoke()方法返回的是StringPromptValue对象，更建议使用这种
+    template_val1 = template.invoke(input={"role": "翻译助手", "task": "翻译这段文字"})
+    print(type(template_val1))
+    print(template_val1)
+    # print(template.invoke(input={"role": "算命大师", "task": "算算我的命"}))
+    # print(template.invoke(input={"role": "代码助手", "task": "帮我写个Python函数"}))
+    return
+
+
+
 def main():
-    prompt_template_dev1()
+    # prompt_template_instance_dev1()
+    # prompt_template_instance_dev2()
+    # prompt_template_partial_dev1()
+    #prompt_template_partial_dev2()
+    # prompt_template_partial_dev3()
+    prompt_template_combine_dev1()
+    # prompt_template_format_dev1()
+    # prompt_template_invoke_dev1()
 
 
 if __name__ == '__main__':
